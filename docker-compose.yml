@@ -3,7 +3,7 @@ services:
     image: postgres:14.1-alpine
     volumes:
       - ./data/db:/var/lib/postgresql/data
-      - ./scripts/postgres/:/docker-entrypoint-initdb.d
+      - ./scripts/postgres/:/docker-entrypoint-initdb.d/
     environment:
       - POSTGRES_DB=postgres
       - POSTGRES_USER=postgres
@@ -15,7 +15,7 @@ services:
     healthcheck:
       test: ["CMD", "pg_isready", "-U", "postgres", "-d", "postgres"]
       interval: 5s
-      retries: 5
+      retries: 10
   web:
     build: .
     command: ./scripts/django/run_service.sh
