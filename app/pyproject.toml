@@ -49,7 +49,7 @@ build-backend = "poetry.core.masonry.api"
 [tool.flake8]
 max-line-length = 120
 no-accept-encodings = true
-inline-quotes = '"'
+inline-quotes = "'"
 # Ignoring:
 # E203: white space before ':'. Because it's not black compatible
 # E501: Line too long. Because we use soft line limit B950
