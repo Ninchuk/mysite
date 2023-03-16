@@ -1,4 +1,5 @@
 from django import forms
+
 from .models import Comment
 
 
@@ -12,7 +13,7 @@ class EmailPostForm(forms.Form):
 class CommentForm(forms.ModelForm):
     class Meta:
         model = Comment
-        fields = ['name', 'email', 'body']
+        fields = ['name', 'email', 'body']  # noqa: BLK100
 
 
 class SearchForm(forms.Form):

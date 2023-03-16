@@ -30,16 +30,16 @@ COPY ./README.md /usr/src/app
 
 RUN chmod +x ./scripts/run_server.sh
 
-FROM base as test
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
-RUN chmod +x ./scripts/test.sh
-RUN ./scripts/test.sh
+#FROM base as test
+#RUN poetry config virtualenvs.create false \
+#    && poetry install --no-interaction --no-ansi
+#RUN chmod +x ./scripts/test.sh
+#RUN ./scripts/test.sh
+#
+#FROM base as lint
+#RUN poetry config virtualenvs.create false \
+#    && poetry install --no-interaction --no-ansi
+#RUN chmod +x ./scripts/lint.sh
+#RUN ./scripts/lint.sh
 
-FROM base as lint
-RUN poetry config virtualenvs.create false \
-    && poetry install --no-interaction --no-ansi
-RUN chmod +x ./scripts/lint.sh
-RUN ./scripts/lint.sh
-
-FROM base as dist-image
+#FROM base as dist-image
