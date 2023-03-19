@@ -136,3 +136,8 @@ variable "hosted_zone" {
 variable "secret_id" {
   description = "Secret manager ID"
 }
+
+# secret email
+variable "email_password" {
+  description = "Email password"
+}

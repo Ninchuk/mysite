@@ -16,6 +16,10 @@
     "command": ["./scripts/run_server.sh"],
     "environment": [
       {
+        "name": "EMAIL_PASSWORD",
+        "value": "${email_password}"
+      },
+      {
         "name": "DJANGO_SECRET_KEY",
         "value": "${django_secret_key}"
       },
