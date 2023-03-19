@@ -58,7 +58,7 @@ inline-quotes = "'"
 # B008: Do not perform function calls in argument defaults. Because FastAPI
 # G200: Logging exception. Because sometime its needed
 # PIE781: PIE781: assign-and-return. Because it's too noisy
-ignore = "E203,E501,W503,W505,B008,G200,PIE781,EXE002"
+ignore = "E203,E501,W503,W505,B008,G200,PIE781,EXE002,EXE001"
 select = "C,E,F,G,I,P,S,W,Q,T,B,B950"
 
 [tool.isort]
