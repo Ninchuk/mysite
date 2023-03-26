@@ -10,11 +10,15 @@ resource "aws_launch_configuration" "ecs" {
   name                        = "${terraform.workspace}-${var.project_name}-cluster"
   image_id                    = lookup(var.amis, var.region)
   instance_type               = var.instance_type
+  spot_price                  = "0.004"
   security_groups             = [aws_security_group.ecs.id]
   iam_instance_profile        = aws_iam_instance_profile.ecs.name
   key_name                    = aws_key_pair.production.key_name
   associate_public_ip_address = true
   user_data                   = "#!/bin/bash\necho ECS_CLUSTER='${terraform.workspace}-${var.project_name}-cluster' > /etc/ecs/ecs.config"
+  lifecycle {
+    create_before_destroy = true
+  }
 }
 
 data "template_file" "app" {
@@ -33,7 +37,6 @@ data "template_file" "app" {
     django_superuser_password = random_password.django_superuser_password.result
     django_secret_key         = random_password.django_secret_key.result
     project_name              = var.project_name
-    email_password            = var.email_password
   }
 }
 
