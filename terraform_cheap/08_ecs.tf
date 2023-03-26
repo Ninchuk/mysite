@@ -37,6 +37,7 @@ data "template_file" "app" {
     django_superuser_password = random_password.django_superuser_password.result
     django_secret_key         = random_password.django_secret_key.result
     project_name              = var.project_name
+    email_password            = var.email_password
   }
 }
 
